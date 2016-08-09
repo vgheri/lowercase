@@ -1,0 +1,20 @@
+{
+    "kind": "Service",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "lowercase",
+        "labels": {"app": "lowercase"}
+    },
+    "spec": {
+        "selector": {
+            "app": "lowercase"
+        },
+        "ports": [
+            {
+                "protocol": "TCP",
+                "port": 80,
+                "targetPort": 1338
+            }
+        ]
+    }
+}

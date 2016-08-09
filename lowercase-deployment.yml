@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: lowercase
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: lowercase
+    spec:
+      containers:
+      - name: lowercase
+        image: valeriogheri/lowercase
+        ports:
+        - containerPort: 1338
+        imagePullPolicy: IfNotPresent
