@@ -12,6 +12,19 @@ spec:
       containers:
       - name: lowercase
         image: valeriogheri/lowercase:latest
+        env:
+        - name: NODE_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
+        - name: POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+        command:
+        - "/bin/sh"
+        - "-c"
+        - "HTTP_PROXY=$(NODE_NAME):4140 ./lowercase"
         ports:
         - containerPort: 1338
         imagePullPolicy: IfNotPresent

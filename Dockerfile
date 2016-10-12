@@ -1,4 +1,4 @@
-FROM scratch
+FROM gliderlabs/alpine
+RUN apk-install bash
 EXPOSE 1338
-ADD lowercase /
-CMD ["/lowercase"]
+COPY lowercase /
